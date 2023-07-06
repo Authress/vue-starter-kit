@@ -1,6 +1,6 @@
 # Authress Starter Kit: Vue
 
-A repository that contains an React example that uses Authress to Login.
+A repository that contains an Vue example that uses Authress to Login.
 
 ## Getting Started
 
