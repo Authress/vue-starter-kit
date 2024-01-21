@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import { LoginClient } from 'authress-login';
+import { LoginClient } from '@authress/login';
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { authressLoginClient, starterKitIsConfiguredCorrectly } from './authressClient';
 

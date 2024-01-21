@@ -1,4 +1,4 @@
-import { LoginClient } from 'authress-login';
+import { LoginClient } from '@authress/login';
 
 let loginClient: LoginClient = null;
 try {
@@ -11,7 +11,7 @@ try {
 
     // Create a custom domain: https://authress.io/app/#/settings?focus=domain (https://login.application.com)
     // * OR use the default one for your account: https://authress.io/app/#/api?route=overview (https://ACCOUNT_ID.api-region.authress.io)
-    authressLoginHostUrl: '',
+    authressApiUrl: '',
   });
 
   loginClient.userSessionExists();

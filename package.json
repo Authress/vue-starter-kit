@@ -11,8 +11,8 @@
     "test": "vue-cli-service test:unit tests/**/*.test.js --require tests/.setup.js"
   },
   "dependencies": {
-    "authress-login": "^2.1",
-    "authress-sdk": "^2.0",
+    "@authress/login": "*",
+    "@authress/sdk": "*",
     "openapi-explorer": "^1.0.551",
     "vue": "^3.2.47",
     "vue-router": "4"
