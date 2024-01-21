@@ -46,7 +46,7 @@
           <div style="color: white">
             <div>
               Authress Account Host URL is missing from your configuration. Go to <strong>src</strong> and
-              specify the <strong>AuthressLoginHostUrl</strong> at the top of the <code style="color: #dc3545">src/authressClient.ts</code> file.
+              specify the <strong>authressApiUrl</strong> at the top of the <code style="color: #dc3545">src/authressClient.ts</code> file.
               <br /><br />
               If you need an account, sign up for free at <a href="https://authress.io/app/#/signup">Authress.io</a>!
             </div>
