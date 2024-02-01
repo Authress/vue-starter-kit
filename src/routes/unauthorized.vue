@@ -3,7 +3,7 @@
       <h1>Authress Unauthorized Page</h1>
 
       <div style="border: 1px white solid; border-radius: 10px; padding: 2rem;">
-        <div>This page is displayed when a user attempts to navigate a protected page and they are not logged in. When this happens, it makes sense to automatically redirect them to the login page.</div>
+        <div>This page is displayed when a user attempts to navigate to a protected page and they are not logged in. When this happens, it makes sense to automatically redirect them to the login page.</div>
 
         <br>
         <button style="margin-right 1rem" @click="login">
