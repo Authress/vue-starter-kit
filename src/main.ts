@@ -1,7 +1,6 @@
 import { createApp } from 'vue';
-import { LoginClient } from '@authress/login';
 import { createRouter, createWebHashHistory } from 'vue-router';
-import { authressLoginClient, starterKitIsConfiguredCorrectly } from './authressClient';
+import { authressLoginClient } from './authressClient';
 
 import './style.css';
 
@@ -15,7 +14,11 @@ const router = createRouter({
     { path: '/', component: Home },
     {
       path: '/unauthorized', component: Unauthorized,
-      beforeEnter: async (to, from, next) => {
+      beforeEnter: async (_to, _from, next) => {
+        if (!authressLoginClient) {
+          next();
+          return;
+        }
         const userIsLoggedIn = await authressLoginClient.userSessionExists();
         if (userIsLoggedIn) {
           console.log('User is already logged in, redirect them to home.');
@@ -28,7 +31,11 @@ const router = createRouter({
     {
       path: '/protected',
       component: ProtectedPage,
-      beforeEnter: async (to, from, next) => {
+      beforeEnter: async (_to, _from, next) => {
+        if (!authressLoginClient) {
+          next();
+          return;
+        }
         const userIsLoggedIn = await authressLoginClient.userSessionExists();
         if (!userIsLoggedIn) {
           console.log('User is not logged on the protected route, redirecting to unauthorized');

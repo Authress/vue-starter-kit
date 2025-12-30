@@ -32,7 +32,7 @@
 
             <div style="text-align: left">
               <span>User Profile:</span>
-              <pre style="white-space: break-spaces; overflowWrap: break-word">{{JSON.stringify(state.userIdentity || 'Not logged in', null, 2)}}</pre>
+              <pre style="white-space: break-spaces; overflowWrap: break-word">{{JSON.stringify(userIdentity || 'Not logged in', null, 2)}}</pre>
             </div>
 
             <br>
@@ -58,10 +58,10 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-  
-const state = reactive({ userIdentity: null });
+
+const userIdentity = ref<Record<string, unknown> | null>(null);
 const router = useRouter();
 
 import { starterKitIsConfiguredCorrectly, authressLoginClient } from '../authressClient';
@@ -74,7 +74,7 @@ const login = async () => {
 const logout = async () => {
   console.log('User logging out');
   await authressLoginClient.logout(window.location.href);
-  state.userIdentity = null;
+  userIdentity.value = null;
 };
 
 const navigateToProtectedPage = async () => {
@@ -97,8 +97,8 @@ const makeApiCallWithUserToken = async () => {
 
 if (starterKitIsConfiguredCorrectly) {
   authressLoginClient.userSessionExists().then((userIsLoggedIn: any) => {
-    state.userIdentity = authressLoginClient.getUserIdentity();
-    console.log('User is Logged In', userIsLoggedIn, state.userIdentity);
+    userIdentity.value = authressLoginClient.getUserIdentity();
+    console.log('User is Logged In', userIsLoggedIn, userIdentity);
   });
 }
 </script>

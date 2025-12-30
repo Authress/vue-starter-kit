@@ -1,6 +1,6 @@
 import { LoginClient } from '@authress/login';
 
-let loginClient: LoginClient = null;
+let loginClient: LoginClient | null = null;
 try {
   loginClient = new LoginClient({
     // app_default is the default Authress created application.
@@ -22,4 +22,4 @@ try {
 
 export const starterKitIsConfiguredCorrectly = !!loginClient;
 
-export const authressLoginClient = loginClient;
+export const authressLoginClient: LoginClient = loginClient!;

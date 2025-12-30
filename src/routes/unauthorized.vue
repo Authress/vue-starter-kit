@@ -30,9 +30,14 @@ const login = async () => {
   console.log('User logging in');
   try {
     state.errorMessage = '';
+    if (!authressLoginClient) {
+      state.errorMessage = 'Authress LoginClient has not been configured for the vue starter kit in your template. Please update your AuthressClient.ts file'
+      return;
+    }
     await authressLoginClient.authenticate({});
-  } catch (error: any) {
-    state.errorMessage = error.message;
+  } catch (error: unknown) {
+    const typedError = error as Error;
+    state.errorMessage = typedError.message;
   }
 };
 
