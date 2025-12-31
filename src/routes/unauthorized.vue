@@ -1,9 +1,10 @@
 <template>
-  <div className="App">      
+  <div className="App">
       <h1>Authress Unauthorized Page</h1>
 
       <div style="border: 1px white solid; border-radius: 10px; padding: 2rem;">
-        <div>This page is displayed when a user attempts to navigate to a protected page and they are not logged in. When this happens, it makes sense to automatically redirect them to the login page.</div>
+        <div>This page is displayed when a user attempts to navigate to a protected page and they are not logged in.
+          When this happens, it makes sense to automatically redirect them to the login page.</div>
 
         <br>
         <button style="margin-right 1rem" @click="login">
@@ -31,7 +32,7 @@ const login = async () => {
   try {
     state.errorMessage = '';
     if (!authressLoginClient) {
-      state.errorMessage = 'Authress LoginClient has not been configured for the vue starter kit in your template. Please update your AuthressClient.ts file'
+      state.errorMessage = 'Authress LoginClient has not been configured for the vue starter kit in your template. Please update your AuthressClient.ts file';
       return;
     }
     await authressLoginClient.authenticate({});

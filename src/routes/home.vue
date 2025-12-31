@@ -2,13 +2,13 @@
   <div className="App">
       <div>
         <a href="https://authress.io" target="_blank">
-          <img src="./assets/logo.svg" className="logo" alt="Authress logo" />
+          <img src="./assets/logo.svg" className="logo" alt="Authress logo">
         </a>
         <a href="https://authress.io/knowledge-base" target="_blank">
-          <img src="./assets/vue.svg" className="logo react" alt="Vue logo" />
+          <img src="./assets/vue.svg" className="logo react" alt="Vue logo">
         </a>
       </div>
-      
+
       <h1>Authress + Vue</h1>
 
       <div style="border: 1px white solid; border-radius: 10px; padding: 2rem;">
@@ -32,7 +32,7 @@
 
             <div style="text-align: left">
               <span>User Profile:</span>
-              <pre style="white-space: break-spaces; overflowWrap: break-word">{{JSON.stringify(userIdentity || 'Not logged in', null, 2)}}</pre>
+              <pre style="white-space: break-spaces; overflowWrap: break-word">{{ JSON.stringify(userIdentity || 'Not logged in', null, 2) }}</pre>
             </div>
 
             <br>
@@ -47,7 +47,7 @@
             <div>
               Authress Account Host URL is missing from your configuration. Go to <strong>src</strong> and
               specify the <strong>authressApiUrl</strong> at the top of the <code style="color: #dc3545">src/authressClient.ts</code> file.
-              <br /><br />
+              <br><br>
               If you need an account, sign up for free at <a href="https://authress.io/app/#/signup">Authress.io</a>!
             </div>
           </div>
@@ -93,10 +93,10 @@ const makeApiCallWithUserToken = async () => {
   } catch (error) {
     console.error('Error calling API', error);
   }
-}
+};
 
 if (starterKitIsConfiguredCorrectly) {
-  authressLoginClient.userSessionExists().then((userIsLoggedIn: any) => {
+  authressLoginClient.userSessionExists().then((userIsLoggedIn: boolean) => {
     userIdentity.value = authressLoginClient.getUserIdentity();
     console.log('User is Logged In', userIsLoggedIn, userIdentity);
   });

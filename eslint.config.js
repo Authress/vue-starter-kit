@@ -3,6 +3,7 @@ import vue from 'eslint-plugin-vue';
 import vueParser from 'vue-eslint-parser';
 import typescriptEslint from 'typescript-eslint';
 import typescriptParser from '@typescript-eslint/parser';
+import globals from 'globals';
 
 export default [
   { ignores: ['dist/**', 'node_modules/', "*.js"] },
@@ -23,19 +24,9 @@ export default [
       },
 
       globals: {
-        window: true,
-        console: false,
-        // WebAuthN stuff because eslint doesn't like, and I can't figure out how to make both eslint and typescript happy
-        PublicKeyCredential: "readonly",
-        AuthenticatorTransport: "readonly",
-        PublicKeyCredentialRequestOptions: "readonly",
-        AuthenticatorAssertionResponse: "readonly",
-        PublicKeyCredentialCreationOptions: "readonly",
-        AuthenticatorAttestationResponse: "readonly",
-
-        // Fetch types
-        RequestInit: true,
-        HeadersInit: true
+        ...globals.browser,
+        ...globals.node,
+        ...globals.vitest
       }
     },
     settings: {
